@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using SistemPerMenaxhiminESpitalit.Auth;
 
 namespace SistemPerMenaxhiminESpitalit.Controllers
 {
@@ -8,20 +10,36 @@ namespace SistemPerMenaxhiminESpitalit.Controllers
     }
 
     [ApiController]
-    [Route("doctors")]
+    [Route("api/doctors")]
     public class DoctorsController : ControllerBase
     {
         private readonly ILogger<DoctorsController> _logger;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public DoctorsController(ILogger<DoctorsController> logger)
+
+        public DoctorsController(ILogger<DoctorsController> logger, UserManager<ApplicationUser> userManager)
         {
             _logger = logger;
+            _userManager = userManager;
         }
 
-        [HttpPost("register")]
-        public string Register(string name, string email)
+        [HttpGet("get-doctors")]
+        public async Task<IActionResult> GetDoctors()
         {
-            return name;
+            string roleName = "doctor";
+            return Ok(await _userManager.GetUsersInRoleAsync(roleName));
+        }
+        [HttpDelete("delete-doctor/{id}")]
+        public async Task<IActionResult> DeleteDoctors(string id)
+        {
+            try{
+                ApplicationUser user = await _userManager.FindByIdAsync(id);
+                string roleName = "doctor";
+                return Ok(await _userManager.DeleteAsync(user));
+            }catch(Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
         }
     }
 }
