@@ -132,3 +132,7 @@ C:\Users\dhuri\OneDrive\Desktop\smp-api\SistemPerMenaxhiminESpitalit\SistemPerMe
 C:\Users\dhuri\OneDrive\Desktop\smp-api\SistemPerMenaxhiminESpitalit\SistemPerMenaxhiminESpitalit\obj\Debug\net6.0\SistemPerMenaxhiminESpitalit.pdb
 C:\Users\dhuri\OneDrive\Desktop\smp-api\SistemPerMenaxhiminESpitalit\SistemPerMenaxhiminESpitalit\obj\Debug\net6.0\SistemPerMenaxhiminESpitalit.genruntimeconfig.cache
 C:\Users\dhuri\OneDrive\Desktop\smp-api\SistemPerMenaxhiminESpitalit\SistemPerMenaxhiminESpitalit\obj\Debug\net6.0\ref\SistemPerMenaxhiminESpitalit.dll
+C:\Users\dhuri\OneDrive\Desktop\smp-api\SistemPerMenaxhiminESpitalit\SistemPerMenaxhiminESpitalit\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\dhuri\OneDrive\Desktop\smp-api\SistemPerMenaxhiminESpitalit\SistemPerMenaxhiminESpitalit\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\dhuri\OneDrive\Desktop\smp-api\SistemPerMenaxhiminESpitalit\SistemPerMenaxhiminESpitalit\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\dhuri\OneDrive\Desktop\smp-api\SistemPerMenaxhiminESpitalit\SistemPerMenaxhiminESpitalit\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

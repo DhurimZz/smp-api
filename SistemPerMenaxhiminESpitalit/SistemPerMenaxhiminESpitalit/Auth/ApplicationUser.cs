@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using SistemPerMenaxhiminESpitalit.Data;
 
 namespace SistemPerMenaxhiminESpitalit.Auth
 {
@@ -7,5 +8,7 @@ namespace SistemPerMenaxhiminESpitalit.Auth
         public string Address { get; set; }
         public string Name { get; set; }
         public string Surename { get; set; }
+
+        public virtual Specialisation Specialisation{ get; set; }
     }
 }

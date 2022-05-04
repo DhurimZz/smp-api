@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace SistemPerMenaxhiminESpitalit.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220503193651_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20220504191109_AddedSpecialisationWithUser")]
+    partial class AddedSpecialisationWithUser
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -209,6 +209,10 @@ namespace SistemPerMenaxhiminESpitalit.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("SpecialisationId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("Surename")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -230,7 +234,23 @@ namespace SistemPerMenaxhiminESpitalit.Migrations
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
+                    b.HasIndex("SpecialisationId");
+
                     b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("SistemPerMenaxhiminESpitalit.Data.Specialisation", b =>
+                {
+                    b.Property<string>("SpecialisationId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("SpecialisationId");
+
+                    b.ToTable("specialisations");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -282,6 +302,22 @@ namespace SistemPerMenaxhiminESpitalit.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("SistemPerMenaxhiminESpitalit.Auth.ApplicationUser", b =>
+                {
+                    b.HasOne("SistemPerMenaxhiminESpitalit.Data.Specialisation", "Specialisation")
+                        .WithMany("Users")
+                        .HasForeignKey("SpecialisationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Specialisation");
+                });
+
+            modelBuilder.Entity("SistemPerMenaxhiminESpitalit.Data.Specialisation", b =>
+                {
+                    b.Navigation("Users");
                 });
 #pragma warning restore 612, 618
         }
