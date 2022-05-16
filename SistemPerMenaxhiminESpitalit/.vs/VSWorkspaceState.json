@@ -1,11 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\SistemPerMenaxhiminESpitalit",
-    "\\SistemPerMenaxhiminESpitalit\\Data",
-    "\\SistemPerMenaxhiminESpitalit\\Migrations",
-    "\\SistemPerMenaxhiminESpitalit\\obj"
+    "\\SistemPerMenaxhiminESpitalit"
   ],
-  "SelectedNode": "\\SistemPerMenaxhiminESpitalit.sln",
+  "SelectedNode": "\\SistemPerMenaxhiminESpitalit\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

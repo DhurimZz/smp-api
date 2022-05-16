@@ -64,7 +64,7 @@ namespace SistemPerMenaxhiminESpitalit.Migrations
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Surename = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SpecialisationId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    SpecialisationId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -87,8 +87,7 @@ namespace SistemPerMenaxhiminESpitalit.Migrations
                         name: "FK_AspNetUsers_specialisations_SpecialisationId",
                         column: x => x.SpecialisationId,
                         principalTable: "specialisations",
-                        principalColumn: "SpecialisationId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "SpecialisationId");
                 });
 
             migrationBuilder.CreateTable(

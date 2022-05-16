@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace SistemPerMenaxhiminESpitalit.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220504211901_RemovedSpecialisationUserRelation")]
-    partial class RemovedSpecialisationUserRelation
+    [Migration("20220515193958_AddedSpecialisationWithUser")]
+    partial class AddedSpecialisationWithUser
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
