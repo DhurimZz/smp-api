@@ -1,8 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\SistemPerMenaxhiminESpitalit"
+    "\\SistemPerMenaxhiminESpitalit",
+    "\\SistemPerMenaxhiminESpitalit\\Auth",
+    "\\SistemPerMenaxhiminESpitalit\\Controllers",
+    "\\SistemPerMenaxhiminESpitalit\\Data",
+    "\\SistemPerMenaxhiminESpitalit\\Migrations"
   ],
-  "SelectedNode": "\\SistemPerMenaxhiminESpitalit\\Program.cs",
+  "SelectedNode": "\\SistemPerMenaxhiminESpitalit.sln",
   "PreviewInSolutionExplorer": false
 }

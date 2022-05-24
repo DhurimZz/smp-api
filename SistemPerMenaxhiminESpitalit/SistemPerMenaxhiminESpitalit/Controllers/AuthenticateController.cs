@@ -75,8 +75,10 @@ namespace SistemPerMenaxhiminESpitalit.Controllers
                     Name = model.Name,
                     Surename = model.Surname,
                     PhoneNumber = model.PhoneNumber,
-                    Address = model.Address
+                    Address = model.Address,
                 };
+
+                
 
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (!result.Succeeded)

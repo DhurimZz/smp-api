@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace SistemPerMenaxhiminESpitalit.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220515193958_AddedSpecialisationWithUser")]
-    partial class AddedSpecialisationWithUser
+    [Migration("20220524131643_AddedSpecialisationWithUserRelation")]
+    partial class AddedSpecialisationWithUserRelation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -209,7 +209,8 @@ namespace SistemPerMenaxhiminESpitalit.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SpecialisationId")
+                    b.Property<string>("Specialisationid")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Surename")
@@ -233,7 +234,7 @@ namespace SistemPerMenaxhiminESpitalit.Migrations
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.HasIndex("SpecialisationId");
+                    b.HasIndex("Specialisationid");
 
                     b.ToTable("AspNetUsers", (string)null);
                 });
@@ -305,9 +306,13 @@ namespace SistemPerMenaxhiminESpitalit.Migrations
 
             modelBuilder.Entity("SistemPerMenaxhiminESpitalit.Auth.ApplicationUser", b =>
                 {
-                    b.HasOne("SistemPerMenaxhiminESpitalit.Data.Specialisation", null)
+                    b.HasOne("SistemPerMenaxhiminESpitalit.Data.Specialisation", "Specialisation")
                         .WithMany("Users")
-                        .HasForeignKey("SpecialisationId");
+                        .HasForeignKey("Specialisationid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Specialisation");
                 });
 
             modelBuilder.Entity("SistemPerMenaxhiminESpitalit.Data.Specialisation", b =>

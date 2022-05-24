@@ -9,6 +9,8 @@ namespace SistemPerMenaxhiminESpitalit.Auth
         public string Name { get; set; }
         public string Surename { get; set; }
 
+        public string Specialisationid { get; set; }
+        public Specialisation Specialisation { get; set; }
       
     }
 }
