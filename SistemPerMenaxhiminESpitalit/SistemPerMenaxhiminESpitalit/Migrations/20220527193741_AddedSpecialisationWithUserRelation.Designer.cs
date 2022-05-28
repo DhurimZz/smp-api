@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace SistemPerMenaxhiminESpitalit.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220524131643_AddedSpecialisationWithUserRelation")]
+    [Migration("20220527193741_AddedSpecialisationWithUserRelation")]
     partial class AddedSpecialisationWithUserRelation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -209,7 +209,7 @@ namespace SistemPerMenaxhiminESpitalit.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Specialisationid")
+                    b.Property<string>("SpecialisationId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
@@ -234,7 +234,7 @@ namespace SistemPerMenaxhiminESpitalit.Migrations
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.HasIndex("Specialisationid");
+                    b.HasIndex("SpecialisationId");
 
                     b.ToTable("AspNetUsers", (string)null);
                 });
@@ -308,7 +308,7 @@ namespace SistemPerMenaxhiminESpitalit.Migrations
                 {
                     b.HasOne("SistemPerMenaxhiminESpitalit.Data.Specialisation", "Specialisation")
                         .WithMany("Users")
-                        .HasForeignKey("Specialisationid")
+                        .HasForeignKey("SpecialisationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

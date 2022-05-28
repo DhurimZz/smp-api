@@ -15,6 +15,9 @@ namespace SistemPerMenaxhiminESpitalit.Auth
 
         [Required(ErrorMessage = "Address is required")]
         public string? Address { get; set; }
+        
+        [Required(ErrorMessage = "Specialisation is required")]
+        public string? Specialisationid { get; set; }
 
         public string? PhoneNumber { get; set; }
 

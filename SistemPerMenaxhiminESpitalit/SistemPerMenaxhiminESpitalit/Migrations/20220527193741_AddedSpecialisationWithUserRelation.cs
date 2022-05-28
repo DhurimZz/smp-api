@@ -64,7 +64,7 @@ namespace SistemPerMenaxhiminESpitalit.Migrations
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Surename = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Specialisationid = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    SpecialisationId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -84,8 +84,8 @@ namespace SistemPerMenaxhiminESpitalit.Migrations
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AspNetUsers_specialisations_Specialisationid",
-                        column: x => x.Specialisationid,
+                        name: "FK_AspNetUsers_specialisations_SpecialisationId",
+                        column: x => x.SpecialisationId,
                         principalTable: "specialisations",
                         principalColumn: "SpecialisationId",
                         onDelete: ReferentialAction.Cascade);
@@ -209,9 +209,9 @@ namespace SistemPerMenaxhiminESpitalit.Migrations
                 column: "NormalizedEmail");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AspNetUsers_Specialisationid",
+                name: "IX_AspNetUsers_SpecialisationId",
                 table: "AspNetUsers",
-                column: "Specialisationid");
+                column: "SpecialisationId");
 
             migrationBuilder.CreateIndex(
                 name: "UserNameIndex",

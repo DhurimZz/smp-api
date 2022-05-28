@@ -7,6 +7,7 @@ using System.Security.Claims;
 using System.Text;
 using SistemPerMenaxhiminESpitalit.Data;
 
+
 namespace SistemPerMenaxhiminESpitalit.Controllers
 {
         [Route("api/auth")]
@@ -16,16 +17,18 @@ namespace SistemPerMenaxhiminESpitalit.Controllers
             private readonly UserManager<ApplicationUser> _userManager;
             private readonly RoleManager<IdentityRole> _roleManager;
             private readonly IConfiguration _configuration;
+            ApplicationDbContext _context;
 
-            public AuthenticateController(
+        public AuthenticateController(
                 UserManager<ApplicationUser> userManager,
                 RoleManager<IdentityRole> roleManager,
-                IConfiguration configuration)
+                IConfiguration configuration, ApplicationDbContext context)
             {
                 _userManager = userManager;
                 _roleManager = roleManager;
                 _configuration = configuration;
-            }
+                _context = context;
+        }
 
             [HttpPost]
             [Route("login")]
@@ -67,6 +70,9 @@ namespace SistemPerMenaxhiminESpitalit.Controllers
                 if (userExists != null)
                     return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User already exists!" });
 
+                var spec = await _context.specialisations.FindAsync(model.Specialisationid);
+                
+
                 ApplicationUser user = new()
                 {
                     Email = model.Email,
@@ -76,6 +82,8 @@ namespace SistemPerMenaxhiminESpitalit.Controllers
                     Surename = model.Surname,
                     PhoneNumber = model.PhoneNumber,
                     Address = model.Address,
+                    SpecialisationId = spec.SpecialisationId,
+                    Specialisation = spec
                 };
 
                 
