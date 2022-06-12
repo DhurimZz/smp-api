@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SistemPerMenaxhiminESpitalit.Auth;
+using SistemPerMenaxhiminESpitalit.Models;
 
 namespace SistemPerMenaxhiminESpitalit.Controllers
 {
@@ -58,14 +59,14 @@ namespace SistemPerMenaxhiminESpitalit.Controllers
         }
 
         [HttpPut(template: "{id}")]
-        public async Task<IActionResult> UpdateDoctors(string id, [FromBody] RegisterModel model)
+        public async Task<IActionResult> UpdateDoctors(string id, [FromBody] UpdateDoctorModel model)
         {
+
             try
             {
                 var spec = await _context.specialisations.FindAsync(model.Specialisationid);
                 var user = await _context.Users.FindAsync(id);
                 user.Name = model.Name;
-                user.Email = model.Email;
                 user.Surename = model.Surname;
                 user.Address = model.Address;
                 user.SpecialisationId = spec.SpecialisationId;
