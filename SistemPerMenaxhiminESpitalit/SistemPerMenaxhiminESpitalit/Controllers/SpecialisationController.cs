@@ -17,6 +17,7 @@ namespace SistemPerMenaxhiminESpitalit.Controllers
             _context = context;
         
         }
+
         [HttpGet()]
         public List<Specialisation> GetAllSpecialisations()
         {
@@ -40,7 +41,7 @@ namespace SistemPerMenaxhiminESpitalit.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> CreateSpecialisations(string id)
+        public async Task<IActionResult> DeleteSpecialisations(string id)
         {
            try
             {

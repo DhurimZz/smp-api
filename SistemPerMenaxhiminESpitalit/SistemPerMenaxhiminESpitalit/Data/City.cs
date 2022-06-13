@@ -3,8 +3,7 @@ namespace SistemPerMenaxhiminESpitalit.Data
 {
     internal sealed class City
     {
-        [Required]
-        [MaxLength(length: 40)]
+        public string? CityId { get; set; }
         public string Name { get; set; } = string.Empty;
     }
 }
