@@ -14,6 +14,7 @@ namespace SistemPerMenaxhiminESpitalit.Models
 
         [Required(ErrorMessage = "Specialisation is required")]
         public string? Specialisationid { get; set; }
+        
 
     }
 }

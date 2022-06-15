@@ -18,6 +18,9 @@ namespace SistemPerMenaxhiminESpitalit.Auth
         
         [Required(ErrorMessage = "Specialisation is required")]
         public string? Specialisationid { get; set; }
+        
+        [Required(ErrorMessage = "Country is required")]
+        public string? Countryid { get; set; }
 
         public string? PhoneNumber { get; set; }
 

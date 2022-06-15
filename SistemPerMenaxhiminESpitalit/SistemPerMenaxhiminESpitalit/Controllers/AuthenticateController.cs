@@ -71,7 +71,7 @@ namespace SistemPerMenaxhiminESpitalit.Controllers
                     return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User already exists!" });
 
                 var spec = await _context.specialisations.FindAsync(model.Specialisationid);
-                
+                var coun = await _context.countries.FindAsync(model.Countryid);
 
                 ApplicationUser user = new()
                 {
@@ -83,7 +83,9 @@ namespace SistemPerMenaxhiminESpitalit.Controllers
                     PhoneNumber = model.PhoneNumber,
                     Address = model.Address,
                     SpecialisationId = spec.SpecialisationId,
-                    Specialisation = spec
+                    Specialisation = spec,
+                    CountryId = coun.CountryId,
+                    Country = coun,
                 };
 
                 

@@ -65,6 +65,8 @@ namespace SistemPerMenaxhiminESpitalit.Controllers
             try
             {
                 var spec = await _context.specialisations.FindAsync(model.Specialisationid);
+                
+
                 var user = await _context.Users.FindAsync(id);
                 user.Name = model.Name;
                 user.Surename = model.Surname;

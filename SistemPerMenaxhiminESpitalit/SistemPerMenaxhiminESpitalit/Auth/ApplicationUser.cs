@@ -10,5 +10,7 @@ namespace SistemPerMenaxhiminESpitalit.Auth
         public string Surename { get; set; }
         public string? SpecialisationId { get; set; }
         public Specialisation Specialisation { get; set; }
+        public string? CountryId { get; set; }
+        public Country Country { get; set; }
     }
 }
