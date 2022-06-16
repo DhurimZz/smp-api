@@ -1,7 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿
+using SistemPerMenaxhiminESpitalit.Auth;
 namespace SistemPerMenaxhiminESpitalit.Data
 {
-    internal sealed class City
+    public class City
     {
         public string? CityId { get; set; }
         public string Name { get; set; } = string.Empty;
