@@ -8,6 +8,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     public DbSet<Specialisation> specialisations { get; set; }
     public DbSet<Country> countries { get; set; }
     public DbSet<City> cities { get; set; }
+    public DbSet<ContactUs> contactus { get; set; }    
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
     {
