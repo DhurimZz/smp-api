@@ -6,34 +6,37 @@ using SistemPerMenaxhiminESpitalit.Models;
 namespace SistemPerMenaxhiminESpitalit.Controllers
 {
     [ApiController]
-    [Route("api/doctors")]
-    public class DoctorsController : ControllerBase
+    [Route("api/patient")]
+    public class PatientController : ControllerBase
     {
-        private readonly ILogger<DoctorsController> _logger;
+        private readonly ILogger<PatientController> _logger;
         private readonly UserManager<ApplicationUser> _userManager;
         ApplicationDbContext _context;
 
-        public DoctorsController(ILogger<DoctorsController> logger, UserManager<ApplicationUser> userManager, ApplicationDbContext context)
+        public PatientController(ILogger<PatientController> logger, UserManager<ApplicationUser> userManager, ApplicationDbContext context)
         {
             _logger = logger;
             _userManager = userManager;
             _context = context;
-        }
 
-        [HttpGet("get-doctors")]
-        public async Task<IActionResult> GetDoctors()
+        }
+        [HttpGet("get-patients")]
+        public async Task<IActionResult> GetPatients()
         {
-            string roleName = "doctor";
+            string roleName = "patient";
             return Ok(await _userManager.GetUsersInRoleAsync(roleName));
         }
-        [HttpDelete("delete-doctor/{id}")]
-        public async Task<IActionResult> DeleteDoctors(string id)
+
+        [HttpDelete("delete-patient/{id}")]
+        public async Task<IActionResult> DeletePatients(string id)
         {
-            try {
+            try
+            {
                 ApplicationUser user = await _userManager.FindByIdAsync(id);
-                string roleName = "doctor";
+                string roleName = "patient";
                 return Ok(await _userManager.DeleteAsync(user));
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
@@ -54,20 +57,15 @@ namespace SistemPerMenaxhiminESpitalit.Controllers
         }
 
         [HttpPut(template: "{id}")]
-        public async Task<IActionResult> UpdateDoctors(string id, [FromBody] UpdateDoctorModel model)
+        public async Task<IActionResult> UpdatePatients(string id, [FromBody] UpdatePatientModel model)
         {
 
             try
             {
-                var spec = await _context.specialisations.FindAsync(model.Specialisationid);
-                
-
                 var user = await _context.Users.FindAsync(id);
                 user.Name = model.Name;
                 user.Surename = model.Surname;
                 user.Address = model.Address;
-                user.SpecialisationId = spec.SpecialisationId;
-                user.Specialisation = spec;
                 await _context.SaveChangesAsync();
                 return Ok("success");
 
@@ -77,6 +75,5 @@ namespace SistemPerMenaxhiminESpitalit.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
-
     }
 }
