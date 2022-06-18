@@ -142,7 +142,43 @@ namespace SistemPerMenaxhiminESpitalit.Controllers
                 return Ok(new Response { Status = "Success", Message = "User created successfully!" });
             }
 
-            private JwtSecurityToken GetToken(List<Claim> authClaims)
+            [HttpPost]
+            [Route("register-patient")]
+            public async Task<IActionResult> RegisterPatient([FromBody] RegisterPatientModel model)
+        {
+            var userExists = await _userManager.FindByEmailAsync(model.Email);
+            if (userExists != null)
+            return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User already exists!" });
+            ApplicationUser user = new()
+            {
+                Email = model.Email,
+                SecurityStamp = Guid.NewGuid().ToString(),
+                UserName = model.Username,
+                Name = model.Name,
+                Surename = model.Surname,
+                PhoneNumber = model.PhoneNumber,
+                Address = model.Address
+            };
+
+            var result = await _userManager.CreateAsync(user, model.Password);
+            if (!result.Succeeded)
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User creation failed! Please check user details and try again." });
+
+            if (!await _roleManager.RoleExistsAsync(UserRoles.Patient))
+            {
+                await _roleManager.CreateAsync(new IdentityRole(UserRoles.Patient));
+            }
+
+            if (await _roleManager.RoleExistsAsync(UserRoles.Patient))
+            {
+                await _userManager.AddToRoleAsync(user, UserRoles.Patient);
+            }
+
+            return Ok(new Response { Status = "Success", Message = "User created successfully!" });
+
+        }
+
+        private JwtSecurityToken GetToken(List<Claim> authClaims)
             {
                 var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]));
 
