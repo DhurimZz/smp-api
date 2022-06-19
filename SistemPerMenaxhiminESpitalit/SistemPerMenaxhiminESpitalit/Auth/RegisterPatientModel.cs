@@ -6,7 +6,6 @@ namespace SistemPerMenaxhiminESpitalit.Auth
         [Required(ErrorMessage = "Name is required")]
         public string? Name { get; set; }
 
-        [Required(ErrorMessage = "Username is required")]
         public string? Username { get; set; }
 
 

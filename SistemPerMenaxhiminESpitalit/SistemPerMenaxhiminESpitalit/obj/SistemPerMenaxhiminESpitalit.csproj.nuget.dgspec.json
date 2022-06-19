@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP OMEN NB\\Desktop\\smp-api\\SistemPerMenaxhiminESpitalit\\SistemPerMenaxhiminESpitalit\\SistemPerMenaxhiminESpitalit.csproj": {}
+    "C:\\Users\\dhuri\\OneDrive\\Desktop\\smp-api\\SistemPerMenaxhiminESpitalit\\SistemPerMenaxhiminESpitalit\\SistemPerMenaxhiminESpitalit.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP OMEN NB\\Desktop\\smp-api\\SistemPerMenaxhiminESpitalit\\SistemPerMenaxhiminESpitalit\\SistemPerMenaxhiminESpitalit.csproj": {
+    "C:\\Users\\dhuri\\OneDrive\\Desktop\\smp-api\\SistemPerMenaxhiminESpitalit\\SistemPerMenaxhiminESpitalit\\SistemPerMenaxhiminESpitalit.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP OMEN NB\\Desktop\\smp-api\\SistemPerMenaxhiminESpitalit\\SistemPerMenaxhiminESpitalit\\SistemPerMenaxhiminESpitalit.csproj",
+        "projectUniqueName": "C:\\Users\\dhuri\\OneDrive\\Desktop\\smp-api\\SistemPerMenaxhiminESpitalit\\SistemPerMenaxhiminESpitalit\\SistemPerMenaxhiminESpitalit.csproj",
         "projectName": "SistemPerMenaxhiminESpitalit",
-        "projectPath": "C:\\Users\\HP OMEN NB\\Desktop\\smp-api\\SistemPerMenaxhiminESpitalit\\SistemPerMenaxhiminESpitalit\\SistemPerMenaxhiminESpitalit.csproj",
-        "packagesPath": "C:\\Users\\HP OMEN NB\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP OMEN NB\\Desktop\\smp-api\\SistemPerMenaxhiminESpitalit\\SistemPerMenaxhiminESpitalit\\obj\\",
+        "projectPath": "C:\\Users\\dhuri\\OneDrive\\Desktop\\smp-api\\SistemPerMenaxhiminESpitalit\\SistemPerMenaxhiminESpitalit\\SistemPerMenaxhiminESpitalit.csproj",
+        "packagesPath": "C:\\Users\\dhuri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dhuri\\OneDrive\\Desktop\\smp-api\\SistemPerMenaxhiminESpitalit\\SistemPerMenaxhiminESpitalit\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\HP OMEN NB\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dhuri\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -95,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
