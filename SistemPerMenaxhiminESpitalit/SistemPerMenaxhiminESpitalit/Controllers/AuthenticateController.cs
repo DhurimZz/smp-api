@@ -6,7 +6,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using SistemPerMenaxhiminESpitalit.Data;
-
+using SistemPerMenaxhiminESpitalit.Models;
 
 namespace SistemPerMenaxhiminESpitalit.Controllers
 {
@@ -59,6 +59,13 @@ namespace SistemPerMenaxhiminESpitalit.Controllers
                     });
                 }
                 return Unauthorized();
+            }
+            [HttpGet]
+            [Route("getUser")]
+            public async Task<IActionResult> GetUser([FromBody] GetUserModel model)
+            {
+            var user = User.FindFirstValue(model.token);
+            return Ok(user);
             }
 
             [HttpPost]
