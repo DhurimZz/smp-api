@@ -60,13 +60,6 @@ namespace SistemPerMenaxhiminESpitalit.Controllers
                 }
                 return Unauthorized();
             }
-            [HttpGet]
-            [Route("getUser")]
-            public async Task<IActionResult> GetUser([FromBody] GetUserModel model)
-            {
-            var user = User.FindFirstValue(model.token);
-            return Ok(user);
-            }
 
             [HttpPost]
             [Route("register-doctor")]

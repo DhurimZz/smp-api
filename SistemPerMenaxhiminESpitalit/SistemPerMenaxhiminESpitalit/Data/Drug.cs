@@ -2,9 +2,9 @@
 {
     public class Drug
     {
-        public string? id { get; set; }  
-        public string? name { get; set; }
+        public string? Id { get; set; }  
+        public string? Name { get; set; }
 
-        public string? date { get; set; }
+        public string? Date { get; set; }
     }
 }

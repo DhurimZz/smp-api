@@ -9,7 +9,8 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     public DbSet<Country> countries { get; set; }
     public DbSet<City> cities { get; set; }
     public DbSet<ContactUs> contactus { get; set; }   
-    public DbSet<Appointment> appointment { get; set; }
+    public DbSet<Appointment> appointment { get; set; } 
+    public DbSet<Disease> diseases { get; set; }
 
     public DbSet<Drug>drugs { get; set; }    
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)

@@ -4,35 +4,34 @@ using SistemPerMenaxhiminESpitalit.Models;
 namespace SistemPerMenaxhiminESpitalit.Controllers
 {
     [ApiController]
-    [Route("api/drugs")]
-    public class DrugController : ControllerBase
+    [Route("api/diseases")]
+    public class DiseaseController : ControllerBase
     {
         ApplicationDbContext _context;
-        public DrugController(ApplicationDbContext context)
+        public DiseaseController(ApplicationDbContext context)
         {
             _context = context;
         }
 
         [HttpGet()]
-        public List<Drug> GetDrugs()
+        public List<Disease> GetDiseases()
         {
-            var documentTypes = _context.drugs.ToList();
+            var documentTypes = _context.diseases.ToList();
 
             return documentTypes;
         }
 
         [HttpPost()]
-        public async Task<IActionResult> CreateDrug([FromBody] DrugModel model)
+        public async Task<IActionResult> CreateDisease([FromBody] DiseaseModelcs model)
         {
             try
             {
-                Drug drug = new Drug()
+                Disease disease = new Disease()
                 {
                     Id = Guid.NewGuid().ToString(),
-                    Name = model.Name,
-                    Date = model.Date,
+                    Name = model.Name
                 };
-                var c = await _context.drugs.AddAsync(drug);
+                var c = await _context.diseases.AddAsync(disease);
                 await _context.SaveChangesAsync();
                 return Ok("success");
             }
@@ -43,12 +42,12 @@ namespace SistemPerMenaxhiminESpitalit.Controllers
         }
         [HttpDelete("{id}")]
 
-        public async Task<IActionResult> DeleteDrug(string id)
+        public async Task<IActionResult> DeleteDisease(string id)
         {
             try
             {
-                var d = await _context.drugs.FindAsync(id);
-                _context.drugs.Remove(d);
+                var d = await _context.diseases.FindAsync(id);
+                _context.diseases.Remove(d);
                 await _context.SaveChangesAsync();
                 return Ok("success");
             }
@@ -63,7 +62,7 @@ namespace SistemPerMenaxhiminESpitalit.Controllers
         {
             try
             {
-                var d = await _context.drugs.FindAsync(id);
+                var d = await _context.diseases.FindAsync(id);
                 return Ok(d);
             }
             catch (Exception ex)
@@ -73,14 +72,13 @@ namespace SistemPerMenaxhiminESpitalit.Controllers
         }
         [HttpPut("{id}")]
 
-        public async Task<IActionResult> UpdateDrug(string id, [FromBody] DrugModel data)
+        public async Task<IActionResult> UpdateDisease(string id, [FromBody] DiseaseModelcs data)
         {
             try
             {
-                var d = await _context.drugs.FindAsync(id);
+                var d = await _context.diseases.FindAsync(id);
                 d.Name = data.Name;
-                d.Date = data.Date;
-                _context.drugs.Update(d);
+                _context.diseases.Update(d);
                 await _context.SaveChangesAsync();
                 return (Ok("success"));
 
