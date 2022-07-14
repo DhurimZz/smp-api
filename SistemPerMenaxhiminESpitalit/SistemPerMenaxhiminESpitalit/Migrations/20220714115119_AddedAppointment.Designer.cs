@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace SistemPerMenaxhiminESpitalit.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220714115119_AddedAppointment")]
+    partial class AddedAppointment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -20,21 +22,6 @@ namespace SistemPerMenaxhiminESpitalit.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("ApplicationUserAppointment", b =>
-                {
-                    b.Property<string>("UsersId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("appointmentsAppointmentID")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("UsersId", "appointmentsAppointmentID");
-
-                    b.HasIndex("appointmentsAppointmentID");
-
-                    b.ToTable("ApplicationUserAppointment");
-                });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
@@ -325,22 +312,6 @@ namespace SistemPerMenaxhiminESpitalit.Migrations
                     b.ToTable("countries");
                 });
 
-            modelBuilder.Entity("SistemPerMenaxhiminESpitalit.Data.Drug", b =>
-                {
-                    b.Property<string>("id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("date")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("id");
-
-                    b.ToTable("drugs");
-                });
-
             modelBuilder.Entity("SistemPerMenaxhiminESpitalit.Data.Specialisation", b =>
                 {
                     b.Property<string>("SpecialisationId")
@@ -353,21 +324,6 @@ namespace SistemPerMenaxhiminESpitalit.Migrations
                     b.HasKey("SpecialisationId");
 
                     b.ToTable("specialisations");
-                });
-
-            modelBuilder.Entity("ApplicationUserAppointment", b =>
-                {
-                    b.HasOne("SistemPerMenaxhiminESpitalit.Auth.ApplicationUser", null)
-                        .WithMany()
-                        .HasForeignKey("UsersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SistemPerMenaxhiminESpitalit.Data.Appointment", null)
-                        .WithMany()
-                        .HasForeignKey("appointmentsAppointmentID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
