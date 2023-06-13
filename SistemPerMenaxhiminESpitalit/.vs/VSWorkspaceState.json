@@ -5,8 +5,9 @@
     "\\SistemPerMenaxhiminESpitalit\\Auth",
     "\\SistemPerMenaxhiminESpitalit\\Controllers",
     "\\SistemPerMenaxhiminESpitalit\\Data",
+    "\\SistemPerMenaxhiminESpitalit\\Migrations",
     "\\SistemPerMenaxhiminESpitalit\\Models"
   ],
-  "SelectedNode": "\\SistemPerMenaxhiminESpitalit.sln",
+  "SelectedNode": "\\SistemPerMenaxhiminESpitalit\\Controllers\\AuthenticateController.cs",
   "PreviewInSolutionExplorer": false
 }
